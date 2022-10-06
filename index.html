@@ -1,68 +1,84 @@
-<html>
+from email.mime import image
+from tkinter import *
+from PIL import ImageTk , Image
+import webbrowser
 
-    <head>
+color_bg = '#f5ecd7'
+font = 'Comic Sans MS'
 
-        <title>The Aura</title>
+main = Tk()
+main.geometry('1500x800')
+main.title('The Aura')
+main.config(bg=color_bg)
 
-        <link rel="stylesheet" href="style.css">
+#------------------------------------------------------------------------
 
-        <meta name="viewport" content="width=device-width">
+image_bg = Image.open('bg1.png')
+image_bg = image_bg.resize((1600,800), Image.ANTIALIAS)
+image_bg = ImageTk.PhotoImage(image_bg)
 
-    </head>
+image_l = Label(main,image=image_bg)
+image_l.place(relx=0.5,rely=0.5,anchor=CENTER)
 
-    <body>
-        
-        <h1>FITNESS     <a id="about" href="">ABOUT</a>
-                        <a id="fitness" href="">FITNESS</a>
-                        <a id="contact" href="">CONTACT</a></h1>
+#------------------------------------------------------------------------
 
-        <label id="line">--------------------------------------------------------------------------------
-            --------------------------------------------------------------------------------
-            --------------------------------------------------------------------------------
-            --------------------------------------------------------------------------------
-            --------------------------------------------------------------------------------
-            --------------------------------------------------------------------------------
-            --------------------------------------------------------------------------------
-            -----------------------------------------</label>
+heading = Label(main,text='The Aura',bg=color_bg,font=(font,25),fg='#444444')
+heading.place(relx=0.06,rely=0.06,anchor=CENTER)
 
-        <p id="info">Fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest along with a formal recovery plan.</p>
+label_info = Label(main,justify=LEFT,bg='#f5ecd7',font=(font,14),fg='#444444',text='Health is a state of complete physical,\n mental and social well-being and not\n merely the absence of disease or\n infirmity. There are five main aspects\n of personal health: physical, emotional,\n social, spiritual, and intellectual.\n Having good health is directly related\n to leading a productive life.\n The functionality of the body is\n interconnected between various organs.\n Keeping the organs healthy is essential\n for proper functioning. As health is\n the state of physical, mental and social\n well-being, having good health\n is important.')
+label_info.place(relx=0.128,rely=0.37,anchor=CENTER)
 
-        <p id="bmi">BMI CALCULATOR</p>
+line = Canvas(main,bg='black',width=1475,height=4)
+line.place(relx=0.5,rely=0.1,anchor=CENTER)
 
-        <input id="h" placeholder="Enter Height(metre)">
-
-        <input id="w" placeholder="Enter Weight(kg)">
-
-        <input id="submit" value="Submit" readonly="readonly" onclick="calc()">
-
-        <img id="run" src="run.jpg">
-
-        <img id="diet" src="diet_chart.jpg">
-        
-        <figure class="wp-block-table"><table><tbody><tr><td><span style="font-weight: bold;">Day 1</span></td><td><span style="font-weight: bold;">Diet Chart</span></td></tr><tr><td>6:30 AM</td><td>Cucumber Detox Water (1 glass)</td></tr><tr><td>8:00 AM</td><td>Oats Porridge in Skimmed Milk (1 bowl)<p>&nbsp;</p><p>Mixed Nuts (25 grams)</p></td></tr><tr><td>12:00 PM</td><td>Skimmed Milk Paneer (100 grams)</td></tr><tr><td>2:00 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>2:10 PM</td><td>Dal(1 katori)Gajar Matar Sabzi (1 katori)<p>&nbsp;</p><p>Roti (1 roti/chapati)</p></td></tr><tr><td>4:00 PM</td><td>Cut Fruits (1 cup) Buttermilk (1 glass)</td></tr><tr><td>5:30 PM</td><td>Tea with Less Sugar and Milk (1 teacup)</td></tr><tr><td>8:50 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>9:00 PM</td><td>Dal (1 katori) Lauki Sabzi (1 katori)<p>&nbsp;</p><p>Roti (1 roti/chapati)</p></td></tr></tbody></table></figure>
-
-        <figure class="wp-block-table"><table><tbody><tr><td><span style="font-weight: bold;">Day 2</span></td><td><span style="font-weight: bold;">Diet Chart</span></td></tr><tr><td>6:30 AM</td><td>Cucumber Detox Water (1 glass)</td></tr><tr><td>8:00 AM</td><td>Curd (1.5 katori) Mixed Vegetable Stuffed Roti (2 pieces)</td></tr><tr><td>12:00 PM</td><td>Skimmed Milk Paneer (100 grams)</td></tr><tr><td>2:00 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>2:10 PM</td><td>Lentil Curry (0.75 bowl) Methi Rice (0.5 katori)</td></tr><tr><td>4:00 PM</td><td>Apple (0.5 small (2-3/4″ dia)) Buttermilk (1 glass)</td></tr><tr><td>5:30 PM</td><td>Coffee with Milk and Less Sugar (0.5 tea cup)</td></tr><tr><td>8:50 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>9:00 PM</td><td>Sauteed Vegetables with Paneer (1 katori) Roti (1 roti/chapati)<p>&nbsp;</p><p>Green Chutney (2 tablespoon)</p></td></tr></tbody></table></figure>
-
-        <figure class="wp-block-table"><table><tbody><tr><td><span style="font-weight: bold;">Day 3</span></td><td><span style="font-weight: bold;">Diet Chart</span></td></tr><tr><td>6:30 AM</td><td>Cucumber Detox Water (1 glass)</td></tr><tr><td>8:00 AM</td><td>Skim Milk Yoghurt (1 cup (8 fl oz)) Multigrain Toast (2 toast)</td></tr><tr><td>12:00 PM</td><td>Skimmed Milk Paneer (100 grams)</td></tr><tr><td>2:00 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>2:10 PM</td><td>Sauteed Vegetables with Paneer (1 katori) Roti (1 roti/chapati)<p>&nbsp;</p><p>Green Chutney (2 tablespoon)</p></td></tr><tr><td>4:00 PM</td><td>Banana (0.5 small (6″ to 6-7/8″ long)) Buttermilk (1 glass)</td></tr><tr><td>5:30 PM</td><td>Tea with Less Sugar and Milk (1 teacup)</td></tr><tr><td>8:50 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>9:00 PM</td><td>Lentil Curry (0.75 bowl) Methi Rice (0.5 katori)</td></tr></tbody></table></figure>
+#------------------------------------------------------------------------
     
-        <figure class="wp-block-table"><table><tbody><tr><td><span style="font-weight: bold;">Day 4</span></td><td><span style="font-weight: bold;">Diet Chart</span></td></tr><tr><td>6:30 AM</td><td>Cucumber Detox Water (1 glass)</td></tr><tr><td>8:00 AM</td><td>Fruit and Nuts Yogurt Smoothie (0.75 glass)<p>&nbsp;</p><p>Egg Omelette (1 serve(one egg))</p></td></tr><tr><td>12:00 PM</td><td>Skimmed Milk Paneer (100 grams)</td></tr><tr><td>2:00 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>2:10 PM</td><td>Green Gram Whole Dal Cooked (1 katori) Bhindi sabzi (1 katori)<p>&nbsp;</p><p>Roti (1 roti/chapati)</p></td></tr><tr><td>4:00 PM</td><td>Orange (1 fruit (2-5/8″ dia)) Buttermilk (1 glass)</td></tr><tr><td>5:30 PM</td><td>Coffee with Milk and Less Sugar (0.5 teacup)</td></tr><tr><td>8:50 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>9:00 PM</td><td>Palak Chole (1 bowl) Steamed Rice (0.5 katori)</td></tr></tbody></table></figure>
-
-        <figure class="wp-block-table"><table><tbody><tr><td><span style="font-weight: bold;">Day 5</span></td><td><span style="font-weight: bold;">Diet Chart</span></td></tr><tr><td>6:30 AM</td><td>Cucumber Detox Water (1 glass)</td></tr><tr><td>8:00 AM</td><td>Skimmed Milk (1 glass) Peas Poha (1.5 katori)</td></tr><tr><td>12:00 PM</td><td>Skimmed Milk Paneer (100 grams)</td></tr><tr><td>2:00 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>2:10 PM</td><td>Low Fat Paneer Curry (1.5 katori) Missi Roti (1 roti)</td></tr><tr><td>4:00 PM</td><td>Papaya (1 cup 1″ pieces) Buttermilk (1 glass)</td></tr><tr><td>5:30 PM</td><td>Tea with Less Sugar and Milk (1 teacup)</td></tr><tr><td>8:50 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>9:00 PM</td><td>Curd (1.5 katori) Aloo Baingan Tamatar Ki Sabzi (1 katori)<p>&nbsp;</p><p>Roti (1 roti/chapati)</p></td></tr></tbody></table></figure>
-        
-        <figure class="wp-block-table"><table><tbody><tr><td><span style="font-weight: bold;">Day 6</span></td><td><span style="font-weight: bold;">Diet Chart</span></td></tr><tr><td>6:30 AM</td><td>Cucumber Detox Water (1 glass)</td></tr><tr><td>8:00 AM</td><td>Mixed Sambar (1 bowl) Idli (2 idli)</td></tr><tr><td>12:00 PM</td><td>Skimmed Milk Paneer (100 grams)</td></tr><tr><td>2:00 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>2:10 PM</td><td>Curd (1.5 katori) Aloo Baingan Tamatar Ki Sabzi (1 katori)<p>&nbsp;</p><p>Roti (1 roti/chapati)</p></td></tr><tr><td>4:00 PM</td><td>Cut Fruits (1 cup) Buttermilk (1 glass)</td></tr><tr><td>5:30 PM</td><td>Coffee with Milk and Less Sugar (0.5 tea cup)</td></tr><tr><td>8:50 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>9:00 PM</td><td>Green Gram Whole Dal Cooked (1 katori)Bhindi sabzi (1 katori)<p>&nbsp;</p><p>Roti (1 roti/chapati)</p></td></tr></tbody></table></figure>
-
-        <figure class="wp-block-table"><table><tbody><tr><td><span style="font-weight: bold;">Day 7</span></td><td><span style="font-weight: bold;">Diet Chart</span></td></tr><tr><td>6:30 AM</td><td>Cucumber Detox Water (1 glass)</td></tr><tr><td>8:00 AM</td><td>Besan Chilla (2 cheela) Green Garlic Chutney (3 tablespoon)</td></tr><tr><td>12:00 PM</td><td>Skimmed Milk Paneer (100 grams)</td></tr><tr><td>2:00 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>2:10 PM</td><td>Palak Chole (1 bowl) Steamed Rice (0.5 katori)</td></tr><tr><td>4:00 PM</td><td>Apple(0.5 small (2-3/4″ dia)) Buttermilk (1 glass)</td></tr><tr><td>5:30 PM</td><td>Tea with Less Sugar and Milk (1 teacup)</td></tr><tr><td>8:50 PM</td><td>Mixed Vegetable Salad (1 katori)</td></tr><tr><td>9:00 PM</td><td>Low Fat Paneer Curry (1 katori) Missi Roti (1 roti)</td></tr></tbody></table></figure>
-
-    </body>
-
-    <script>
+def on_enter1(e):
+    btn_about['font'] = (font,18)
     
-        function calc(){
-            height = document.getElementById('h').value;
-            weight = document.getElementById('w').value;
-            alert(Math.round(weight/(height*height)))
-        }
+def on_leave1(e):
+    btn_about['font'] = (font,15)
+    
+def on_enter2(e):
+    btn_fitness['font'] = (font,18)
+    
+def on_leave2(e):
+    btn_fitness['font'] = (font,15)
+    
+def on_enter3(e):
+    btn_contact['font'] = (font,18)
+    
+def on_leave3(e):
+    btn_contact['font'] = (font,15)
+    
+def about_page():
+    webbrowser.open_new("https://darkaura96.github.io/aboutus/")
+    
+def fitness_page():
+    webbrowser.open_new("https://aaditgupta1.github.io/Fitness/")
+    
+def contact_page():
+    webbrowser.open_new("https://devakproprogrammer.github.io/Contact-us/")
 
-    </script>
+#------------------------------------------------------------------------
 
-</html>
+btn_about = Button(main,text='ABOUT US',bg=color_bg,font=(font,15),fg='#444444',border=0,command=about_page)
+btn_fitness = Button(main,text='FITNESS',bg=color_bg,font=(font,15),fg='#444444',border=0,command=fitness_page)
+btn_contact = Button(main,text='CONTACT',bg=color_bg,font=(font,15),fg='#444444',border=0,command=contact_page)
+
+btn_about.place(relx=0.5,rely=0.06,anchor=CENTER)
+btn_fitness.place(relx=0.6,rely=0.06,anchor=CENTER)
+btn_contact.place(relx=0.7,rely=0.06,anchor=CENTER)
+
+btn_about.bind("<Enter>", on_enter1)
+btn_about.bind("<Leave>", on_leave1)
+
+btn_fitness.bind("<Enter>", on_enter2)
+btn_fitness.bind("<Leave>", on_leave2)
+
+btn_contact.bind("<Enter>", on_enter3)
+btn_contact.bind("<Leave>", on_leave3)
+
+#------------------------------------------------------------------------
+
+main.mainloop()
